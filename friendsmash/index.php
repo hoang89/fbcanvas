@@ -30,6 +30,7 @@ $app_secret = 'a094d353913fed48e199c18fc6711023';
 $app_namespace = 'friendsmashhoangnn';
 $app_url = 'https://apps.facebook.com/' . $app_namespace . '/';
 $scope = 'email,publish_actions';
+$url = "http://54.248.83.174/fbcanvas/friendsmash/";
 
 // Init the Facebook SDK
 $facebook = new Facebook(array(
@@ -44,7 +45,7 @@ $user = $facebook->getUser();
 if (!$user) {
     $loginUrl = $facebook->getLoginUrl(array(
         'scope' => $scope,
-        'redirect_uri' => $app_url,
+        'redirect_uri' => $url,
     ));
 
     print('<script> top.location.href=\'' . $loginUrl . '\'</script>');
@@ -91,7 +92,7 @@ if (!$user) {
     // Initialize the JS SDK
     FB.init({
         appId: appId,
-        cookie: true,
+        cookie: true
     });
 
     FB.getLoginStatus(function (response)

@@ -30,6 +30,7 @@
 
   $app_url = 'http://apps.facebook.com/' . $app_namespace . '/';
   $scope = 'email,publish_actions';
+  $url = "http://localhost/web-friend-smash/friendsmash";
 
   // Init the Facebook SDK
    $facebook = new Facebook(array(
@@ -45,7 +46,7 @@
    if (!$user) {
      $loginUrl = $facebook->getLoginUrl(array(
        'scope' => $scope,
-       'redirect_uri' => $app_url,
+       'redirect_uri' => $url,
      ));
 
      print('<script> top.location.href=\'' . $loginUrl . '\'</script>');
